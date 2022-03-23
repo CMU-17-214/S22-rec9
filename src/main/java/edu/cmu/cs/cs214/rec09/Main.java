@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 
 public class Main {
     private static final int NUM_REQUESTS = 100;
-    private static String URL_STR = "http://feature.isri.cmu.edu";
+    private static String URL_STR = "http://feature.isri.cmu.edu:3003/";
     private static HttpClient client = HttpClient.newHttpClient();
 
     private static void runWebAPIRequest() throws IOException, InterruptedException {
@@ -45,7 +45,7 @@ public class Main {
         Instant start = Instant.now();
         for (int i = 0; i < NUM_REQUESTS; i++) {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-//            System.out.println(response.body());
+            System.out.println(response.body());
         }
         System.out.println("Total time sync (ms): " + Duration.between(start, Instant.now()).toMillis());
     }
@@ -65,7 +65,7 @@ public class Main {
         responseFuture.thenRun(() -> System.out.println("do other things after finished..."));
         System.out.println("do other things...");
         HttpResponse<String> response = responseFuture.join();
-//        System.out.println("The response is:" + response.body());
+        System.out.println("The response is:" + response.body());
 
         System.out.println("Total time async (ms): " + Duration.between(start, Instant.now()).toMillis());
     }
