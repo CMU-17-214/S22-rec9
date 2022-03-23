@@ -68,7 +68,6 @@ public class Main {
 //        System.out.println("The response is:" + response.body());
 
         System.out.println("Total time async (ms): " + Duration.between(start, Instant.now()).toMillis());
-        System.exit(0);
     }
 
     private static void runMultipleAsynchronous() throws IOException, InterruptedException {
@@ -91,7 +90,6 @@ public class Main {
          */
 
         System.out.println("Total time async (ms): " + Duration.between(start, Instant.now()).toMillis());
-        System.exit(0);
     }
 
     public static void main(String[] args) throws IOException, InterruptedException, ExecutionException {
@@ -101,5 +99,6 @@ public class Main {
 //        runMultipleSynchronous();
 //        runSingleAsync();
 //        runMultipleAsynchronous();
+        System.exit(0);
     }
 }
